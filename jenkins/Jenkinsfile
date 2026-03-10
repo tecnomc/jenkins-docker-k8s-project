@@ -1,6 +1,5 @@
 pipeline {
-
-```
+    
 agent none
 
 environment {
@@ -42,6 +41,5 @@ stages {
     }
 
 }
-```
 
 }
