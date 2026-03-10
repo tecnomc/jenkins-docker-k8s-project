@@ -1,0 +1,14 @@
+{
+"name": "jenkins-docker-k8s-app",
+"version": "1.0.0",
+"description": "Demo Node.js app for Jenkins Docker Kubernetes CI/CD pipeline",
+"main": "app.js",
+"scripts": {
+"start": "node app.js"
+},
+"author": "Shilpa Reddy",
+"license": "MIT",
+"dependencies": {
+"express": "^4.18.2"
+}
+}
