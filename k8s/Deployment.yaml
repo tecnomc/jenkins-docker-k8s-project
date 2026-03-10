@@ -19,7 +19,7 @@ app: node-app
 spec:
   containers:
   - name: node-container
-    image: shilpareddy/node-app:latest
+    image: shilpa1819/k8s:latest
     ports:
     - containerPort: 3000
 ```
