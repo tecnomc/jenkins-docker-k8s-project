@@ -34,16 +34,16 @@ stages {
     }
 }
 
-    stage('Deploy to Kubernetes') {
+   stage('Deploy to Kubernetes') {
     agent { label 'k8s-agent' }
     steps {
-        sh '''
+        sh """
         kubectl apply -f k8s/Deployment.yaml
         kubectl apply -f k8s/service.yaml
-        '''
+        kubectl set image deployment/node-app node-container=shilpa1819/k8s:${BUILD_NUMBER}
+        """
     }
 }
-
 }
 
 }
