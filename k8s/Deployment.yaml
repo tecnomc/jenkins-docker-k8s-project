@@ -15,12 +15,11 @@ metadata:
 labels:
 app: node-app
 
-```
 spec:
   containers:
   - name: node-container
     image: shilpa1819/k8s:latest
     ports:
     - containerPort: 3000
-```
+
 
