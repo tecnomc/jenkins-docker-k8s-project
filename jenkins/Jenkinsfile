@@ -35,11 +35,14 @@ stages {
 }
 
     stage('Deploy to Kubernetes') {
-        agent { label 'k8s-agent' }
-        steps {
-            sh 'kubectl set image deployment/node-app node-container=$DOCKER_IMAGE'
-        }
+    agent { label 'k8s-agent' }
+    steps {
+        sh '''
+        kubectl apply -f k8s/Deployment.yaml
+        kubectl apply -f k8s/service.yaml
+        '''
     }
+}
 
 }
 
