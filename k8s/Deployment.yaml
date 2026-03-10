@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: node-container
-        image: shilpa1819/k8s:${BUILD_NUMBER}
+        image: shilpa1819/k8s:latest
         ports:
         - containerPort: 3000
