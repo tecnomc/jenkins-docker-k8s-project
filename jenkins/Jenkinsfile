@@ -23,15 +23,16 @@ stages {
     }
 
     stage('Push Image to DockerHub') {
-        agent { label 'docker-agent' }
-        steps {
-            script {
-                docker.withRegistry('', 'dockerhub-creds') {
-                    sh 'docker push $DOCKER_IMAGE'
-                }
-            }
+    agent { label 'docker-agent' }
+    steps {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+            sh '''
+            echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+            docker push $DOCKER_IMAGE
+            '''
         }
     }
+}
 
     stage('Deploy to Kubernetes') {
         agent { label 'k8s-agent' }
